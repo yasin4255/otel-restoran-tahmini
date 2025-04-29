@@ -13,7 +13,7 @@ Yorum verileri üzerinde gerçekleştirilen temel işlemler:
 - ✅ İngilizce stopword (gereksiz kelimeler) temizliği  
 - ✅ Tokenizasyon (metni kelimelere ayırma)  
 - ✅ Lemmatizasyon ve stemleme (kök forma indirgeme)  
-  - Kullanılan kütüphaneler: `nltk`, `spaCy`
+  - Kullanılan kütüphaneler: `nltk`,
 
 ---
 
