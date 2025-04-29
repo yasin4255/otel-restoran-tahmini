@@ -6,6 +6,11 @@ Bu proje, Python dili ve NLTK kütüphanesi kullanılarak doğal dil işleme (NL
 
 ## 📅 1. Hafta — Veri Hazırlama ve Temizleme
 
+ilk olarak otel ve restoran verilerini ayrı ayrı veriler çekim daha sonra bu verilerin yorum sütunlarını ayırdım.
+Ayırdığım yorum sütunlarını birleştirerek yeni bir csv (birlesik_yorumlar.csv) dosyasına kaydettim.
+yeni csv dosyası üzerinde aşağıdaki işlemleri uyguladım.
+-Bu çalışmam ise "yorumların_birleştirilmesi.ipynb" adlı kaynak dosyasında bulunmaktadır
+
 Yorum verileri üzerinde gerçekleştirilen temel işlemler:
 
 - ✅ Küçük harfe çevirme  
