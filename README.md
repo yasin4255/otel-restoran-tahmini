@@ -86,15 +86,6 @@ Bu matris, öneri sistemleri veya benzer arıza kayıtlarını bulma gibi uygula
 .Eğitilen modeller, daha sonra kullanılmak üzere dosyaya kaydedilmiştir. Dosya adları, 
  kullanılan parametreleri içerecek şekilde düzenlenmiştir (örneğin, "lemmatized_model_cbow_window2_dim100.model"). Elde edilen dosyalar, model  klasörü içerisine 
  kaydedilmiştir.
-# 2.5. Word2Vec Modelleri Eğitimi
-Word2Vec modeli, kelimelerin anlamlarını vektörler aracılığıyla temsil etmeyi amaçlayan bir tekniktir. Bu adımda, metin verilerinden kelime vektörleri elde edilir.
-Model eğitimi için farklı parametre kombinasyonları kullanılır. Bu parametreler, modelin performansını ve elde edilen vektörlerin kalitesini etkileyebilir.
-Model eğitimi notebooks klasörü içerisinde yer alan '04_word2vec' dosyasında gerçekleştirilmiştir.
-Seçilecek parametreler şunları içeriyor:
-Model tipi: CBOW (Continuous Bag of Words) veya Skip-gram.
-Pencere boyutu: Bir kelimenin bağlamını oluşturan kelime sayısı.
-Vektör boyutu: Kelimelerin temsil edileceği vektörlerin boyutu.
-Eğitilen modeller, daha sonra kullanılmak üzere dosyaya kaydedilmiştir. Dosya adları, kullanılan parametreleri içerecek şekilde düzenlenmiştir (örneğin, "lemmatized_model_cbow_window2_dim100.model"). Elde edilen dosyalar, models klasörü içerisine kaydedilmiştir.
 # 2.6. Model Değerlendirmesi ve Kullanımı
 Eğitilen Word2Vec modelleri, kelime benzerliği, kelime analojisi gibi görevlerde değerlendirilebilir.
 Modelin performansı ve elde edilen vektörlerin kalitesi analiz edilebilir.
