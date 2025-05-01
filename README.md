@@ -53,7 +53,7 @@ CSV dosyasından alınan yorumlar şu adımlardan geçirilmiştir:
 
 Bu hafta, ön işlenmiş metin verileri hem TF-IDF yöntemiyle vektörleştirilecek hem de Word2Vec modeli kullanılarak kelime vektörleri elde edilecektir.
 
-2.1. TF-IDF Vektörleştirme
+# 2.1. TF-IDF Vektörleştirme
 TF-IDF (Term Frequency-Inverse Document Frequency) yöntemi, bir metin içindeki kelimelerin önemini ölçmek için kullanılan bir tekniktir. Bu adımda, her bir metin verisi, terim frekansları (TF) ve ters belge frekansı (IDF) kullanılarak bir vektöre dönüştürülür.
 sklearn.feature_extraction.text kütüphanesindeki TfidfVectorizer sınıfı, bu dönüşümü gerçekleştirmek için kullanılır.
 kod klaörünün içinde bulunan TF-İDF' dosyasında bu işlem gerçekleştirilmiştir. Elde edilen bulgular dosya içinde bulunmaktadır.
