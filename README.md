@@ -4,7 +4,7 @@ Bu proje, Python dili ve NLTK kütüphanesi kullanılarak doğal dil işleme (NL
 
 ---
 
-## 📅 1. Hafta — Veri Hazırlama ve Önişleme
+## 1. Hafta — Veri Hazırlama ve Önişleme
 1.1. Veri Toplama
 
 ilk olarak otel ve restoran verilerini ayrı ayrı veriler çekilmiştir daha sonra bu verilerin yorum sütunlarına ayrılmıştır.
@@ -99,3 +99,57 @@ Bu matris, öneri sistemleri veya benzer arıza kayıtlarını bulma gibi uygula
 Eğitilen Word2Vec modelleri, kelime benzerliği, kelime analojisi gibi görevlerde değerlendirilebilir.
 Modelin performansı ve elde edilen vektörlerin kalitesi analiz edilebilir.
 En iyi performansı gösteren modeller, proje kapsamında kullanılmak üzere seçilebilir.
+
+# Word2Vec Model 
+
+Bu proje, otel ve restoran yorumları üzerinde **Word2Vec** modellerini eğitmek ve kelime benzerliklerini analiz etmek için tasarlanmıştır. Aşağıda projenin temel adımları ve açıklamaları bulunmaktadır.
+
+---
+
+## Adımlar
+
+### 1. Gerekli Kütüphanelerin Kurulumu
+- **Kullanılan Araçlar**: `gensim` (Word2Vec modeli için), `pandas` (veri işleme), `nltk` (metin işleme).
+- **NLTK Paketleri**: Tokenizasyon, stopwords'ler ve lemmatization için gerekli paketler indirilir.
+
+### 2. Veri Setinin Hazırlanması
+- **Veri Kaynakları**: 
+  - `lemmatized_sentences.csv`: Kelimelerin kök hallerini içeren cümleler.
+  - `stemmed_sentences.csv`: Kelime köklerini içeren cümleler.
+- **Temizlik İşlemleri**:
+  - NaN ve boş değerler temizlenir.
+  - Metinler özel karakterlerden arındırılır, küçük harfe çevrilir.
+  - Stopwords'ler ve tek karakterli kelimeler filtrelenir.
+
+### 3. Veri Analizi ve Vektörleştirme
+- **Model Parametreleri**:
+  - **Model Türü**: CBOW veya Skip-gram.
+  - **Pencere Boyutu**: 2 veya 4.
+  - **Vektör Boyutu**: 100 veya 300.
+- **Eğitim**:
+  - Her parametre kombinasyonu için ayrı modeller eğitilir.
+  - Modeller `.model` uzantısıyla kaydedilir.
+- **Analiz**:
+  - "soup" kelimesine en benzer 3 kelime ve skorları çıkarılır.
+  - Veri setindeki en sık kullanılan 20 kelime listelenir.
+
+---
+
+## Sonuçlar
+- **Kaydedilen Modeller**: `lemmatized_model_cbow_vs100_w2.model`, `stemmed_model_skipgram_vs300_w4.model` gibi isimlerle kaydedilir.
+- **Örnek Çıktılar**:
+  - Kelime benzerlikleri yüksek skorlarla raporlanır (örneğin, "soup" ↔ "burger": 0.9964).
+  - En sık kullanılan kelimeler "good", "staff", "room" gibi tematik terimlerdir.
+
+---
+
+## Nasıl Çalıştırılır?
+1. **Veri Yollarını Güncelleyin**: CSV dosyalarının doğru konumunu belirtin.
+2. **Jupyter Not Defterini Başlatın**: Tüm hücreleri sırayla çalıştırın.
+3. **Sonuçları Görüntüleyin**: Modeller ve analiz çıktıları otomatik olarak oluşturulur.
+
+---
+
+
+
+ 
