@@ -46,6 +46,16 @@ CSV dosyasından alınan yorumlar şu adımlardan geçirilmiştir:
 - spaCy (isteğe bağlı)
 - pandas
 - numpy
+- import gensim  # Word2Vec gibi kelime vektörü modellerini kullanmak için
+-from gensim.models import Word2Vec  # Özellikle Word2Vec modelini kullanmak için
+-import pandas as pd  # Veri çerçeveleri (DataFrame) ile çalışmak ve CSV dosyalarını okumak için
+
+-import nltk  # Doğal Dil İşleme (NLP) görevleri için
+-from nltk.tokenize import word_tokenize, sent_tokenize  # Metni kelimelere ve cümlelere ayırmak için
+-from nltk.corpus import stopwords  # Stop kelimelerini (anlamsız sık kullanılan kelimeler) elde etmek için
+-from nltk.stem import WordNetLemmatizer, PorterStemmer  # Kelime köklerini bulmak için (lemmatize ve stem)
+
+-from collections import Counter  # Listelerdeki elemanların sıklığını saymak için
 
 ---
 
