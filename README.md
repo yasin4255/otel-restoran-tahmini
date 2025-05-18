@@ -40,10 +40,9 @@ CSV dosyasından alınan yorumlar şu adımlardan geçirilmiştir:
 
 ## 🛠️ Kullanılan Teknolojiler ve Kütüphaneler
 
-- Python 3.x
+- Python 3.10
 - Jupyter Notebook
 - [NLTK - Natural Language Toolkit](https://www.nltk.org/)
-- spaCy (isteğe bağlı)
 - pandas
 - numpy
 - import gensim   Word2Vec gibi kelime vektörü modellerini kullanmak için.
