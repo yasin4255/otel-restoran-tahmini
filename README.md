@@ -41,6 +41,15 @@ CSV dosyasından alınan yorumlar şu adımlardan geçirilmiştir:
 ## 🛠️ Kullanılan Teknolojiler ve Kütüphaneler
 
 - Python 3.10
+-  **Python**: 3.12
+- **Kütüphaneler**:
+  - `nltk==3.9.1`
+  - `gensim==4.3.3`
+  - `scikit-learn==1.5.1`
+  - `pandas==2.2.3`
+  - `numpy==1.26.4`
+  - `matplotlib==3.9.2`
+
 - Jupyter Notebook
 - [NLTK - Natural Language Toolkit](https://www.nltk.org/)
 - pandas
@@ -148,6 +157,95 @@ Bu proje, otel ve restoran yorumları üzerinde **Word2Vec** modellerini eğitme
 3. **Sonuçları Görüntüleyin**: Modeller ve analiz çıktıları otomatik olarak oluşturulur.
 
 ---
+## Görev Tanımları
+1. **Giriş Metni Seçimi**: Veri setinden bir yorum seçilir (ör. "The fries were terrific also, hot crisp..."). Bu metin, veri setindeki bir satırdan alınmalıdır.
+2. **Benzerlik Hesaplama**:
+   - **TF-IDF**: Her metin için TF-IDF vektörleri oluşturulur ve Cosine Similarity ile giriş metnine en benzer 5 metin bulunur.
+   - **Word2Vec**: Her metnin kelimelerinin vektörleri modelden alınır, ortalama vektör hesaplanır ve Cosine Similarity ile en benzer 5 metin belirlenir.
+3. **Değerlendirme**:
+   - **Anlamsal Değerlendirme**: Her modelin önerdiği 5 metne 1-5 arası puan verilir:
+     - 1: Çok alakasız
+     - 2: Kısmen ilgili
+     - 3: Ortalama benzer
+     - 4: Anlamlı benzerlik
+     - 5: Çok güçlü benzerlik
+     - Model başına ortalama puanlar hesaplanır (örn. `[4,4,3,5,4] → Ortalama: 4.0`).
+   - **Sıralama Tutarlılığı**: Modellerin en iyi 5 sonucu Jaccard skoru ile karşılaştırılır:
+     - Jaccard = Kesişim / Birleşim (örn. 3 ortak metin / 7 toplam metin = 0.43).
+     - 18x18 Jaccard matrisi oluşturulur.
+4. **Raporlama**: PDF raporunda aşağıdaki başlıklar yer almalıdır:
+   - Her modelin en iyi 5 metni ve benzerlik skorları.
+   - Anlamsal değerlendirme tablosu ve yorumları.
+   - Jaccard matrisi ve analiz.
+
+## Kurulum
+Notebook'u çalıştırmak için aşağıdaki adımları izleyin:
+
+1. **Depoyu Klonlama** (varsa):
+   ```bash
+   git clone <depo-url'si>
+   cd <depo-dizini>
+   ```
+
+2. **Bağımlılıkları Yükleme**:
+   Gerekli Python paketlerini pip ile yükleyin:
+   ```bash
+   pip install nltk gensim scikit-learn pandas numpy matplotlib
+   ```
+
+3. **NLTK Verilerini İndirme**:
+   Python ortamında şu komutları çalıştırın:
+   ```python
+   import nltk
+   nltk.download('punkt')
+   nltk.download('stopwords')
+   nltk.download('wordnet')
+   ```
+
+4. **Verileri Hazırlama**:
+   - Aşağıdaki dosyaların doğru dizinlerde olduğundan emin olun:
+     - `trip_rest_neywork_1.csv`
+     - `hotel_reviews.csv`
+     - `lemmatized.csv`
+     - `stemmed.csv`
+     - Word2Vec model dosyaları (`<model_dir>/*.model`)
+   - Gerekirse notebook'taki dosya yollarını güncelleyin (örn. `C:/Users/yasin/Desktop/od/`).
+
+## Kullanım
+1. **Notebook'u Açma**:
+   ```bash
+   jupyter notebook
+   ```
+   Ardından `metin işleme.ipynb` dosyasını açın.
+
+2. **Hücreleri Çalıştırma**:
+   - Hücreleri sırayla çalıştırarak:
+     - Bağımlılıkları yükleyin.
+     - Veri setlerini birleştirin ve ön işleme yapın.
+     - TF-IDF ve Word2Vec modelleriyle benzerlik hesaplayın.
+     - Jaccard skoru matrisini oluşturun.
+   - Giriş metni olarak veri setinden bir yorum seçin (örn. `input_index` ile).
+
+3. **Çıktılar**:
+   - Birleşik veri seti: `birlesik_aciklamalar.csv`
+   - Her model için en benzer 5 metin ve Cosine Similarity skorları.
+   - 18x18 Jaccard skoru matrisi (modellerin sıralama örtüşmesi).
+
+## Dosya Yapısı
+- `yapay_zeka_son.ipynb`: Ana Jupyter notebook.
+- `trip_rest_neywork_1.csv`: Restoran yorumları veri seti.
+- `hotel_reviews.csv`: Otel yorumları veri seti.
+- `birlesik_aciklamalar.csv`: Birleşik veri seti.
+- `lemmatized.csv`: Lemmatizasyon uygulanmış veri.
+- `stemmed.csv`: Kök bulma uygulanmış veri.
+- `<model_dir>/*.model`: Word2Vec modelleri (16 adet: 8 lemmatized, 8 stemmed).
+
+## Notlar
+- Dosya yollarının yerel dizin yapınıza uygun olduğundan emin olun.
+- Word2Vec modelleri `model_dir` dizininden yüklenir. Modeller yoksa, kodda eğitim adımlarını ekleyin.
+- Giriş metni, veri setinden seçilmelidir (`input_index` ile).
+- Anlamsal değerlendirme için önerilen metinlere 1-5 arası puan verin ve ortalama skorları hesaplayın.
+
 
 
 
